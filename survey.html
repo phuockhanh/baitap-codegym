@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			font-size: 16px;
+			box-sizing: border-box;
+		}
+		form select {
+			width: 300px;
+		}
+		form textarea{
+			width: 1000px;
+			height: 100px;
+		}
+		table, th, td{
+		    border:1px solid black;
+		}
+		table tr{
+			height: 45px;
+		}
+		table th,table td{
+			width: 60px;
+		}
+		table{
+			width: 1000px;
+		    border-collapse:collapse;
+		    text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<form>
+		<h1>Market Research Survey</h1>
+		<p>Please take a few moments to complete this satisfaction survey.</p>
+		<p>What is your age range?</p>
+		<select>
+			<option>18-24</option>
+			<option>25-34</option>
+			<option>35-50</option>
+			<option>50+</option>
+		</select>
+		<p>What is your yearly income range?</p>
+		<select>
+			<option>0-$25,000</option>
+			<option>$25,001-$50,000</option>
+			<option>$50,001-$100,000</option>
+			<option>$100,000+</option>
+		</select>
+		<p>Gender Identity</p>
+		<label><input type="radio" name="gender" checked="checked">Male</label><br>
+		<label><input type="radio" name="gender">Female</label><br>
+		<label><input type="radio" name="gender">Nonbinary</label><br>
+		<label><input type="radio" name="gender">Other</label><br>
+		<p>Which of the following products have you purchased in the last 2 month. Please check all the apply</p>
+		<label><input type="checkbox" name="">Product 1</label><br>
+		<label><input type="checkbox" name="">Product 2</label><br>
+		<label><input type="checkbox" name="">Product 3</label><br>
+		<p>How offen would you use our new product ? </p>
+		<label><input type="radio" name="date">Daily</label><br>
+		<label><input type="radio" name="date">Weekly</label><br>
+		<label><input type="radio" name="date">Monthly</label><br>
+		<p>What would you pay for the new product</p>
+		$<input type="text" name="dollar" size="10px" style="margin-right: 2px"><strong>.</strong><input type="text" name="cent" size="5px" style="margin-left: 2px">
+		<p>What featurea would you like to see in the new product</p>
+		<textarea></textarea>
+		<p>Please rate your level of agreement with the following statements</p>
+		<table border="2">
+			<thead>
+				<tr style="background: #6699CC">
+					<th></th>
+					<th>Strongly Disagree</th>
+					<th>Disagree</th>
+					<th>Agree</th>
+					<th>Strongly agree</th>
+				</tr>	
+			</thead>
+			<tbody>
+				<tr>
+					<td>Our products are priced fairly</td>
+					<td><input type="radio" name="radio1"><br>1</td>
+					<td><input type="radio" name="radio1"><br>2</td>
+					<td><input type="radio" name="radio1"><br>3</td>
+					<td><input type="radio" name="radio1"><br>4</td>
+				</tr>
+				<tr style="background: #66CCCC" >
+					<td>Our products are hight fairly</td>
+					<td><input type="radio" name="radio2"><br>1</td>
+					<td><input type="radio" name="radio2"><br>2</td>
+					<td><input type="radio" name="radio2"><br>3</td>
+					<td><input type="radio" name="radio2"><br>4</td>
+				</tr>
+				<tr>
+					<td>You would recommend our product to a friend or coworker</td>
+					<td><input type="radio" name="radio3"><br>1</td>
+					<td><input type="radio" name="radio3"><br>2</td>
+					<td><input type="radio" name="radio3"><br>3</td>
+					<td><input type="radio" name="radio3"><br>4</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" name="submit" value="submit" style="width: 100px; height: 30px; margin-top: 20px; font-weight: 500">
+	</form>
+</body>
+</html>
