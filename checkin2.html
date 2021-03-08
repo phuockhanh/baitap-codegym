@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<span>Ngày checkin</span><input type="date" name="date" id="day1"><br>
+	<span>Ngày checkout</span><input type="date" name="date" id="day2"><br>
+	<select id="select">
+		<option value="500">Phòng A</option>
+		<option value="450">Phòng B</option>
+		<option value="350">Phòng C</option>
+	</select>
+	<button onclick="myFunction()">Tính tiền</button>
+	<script>
+		function myFunction() {
+			let vao = document.getElementById("day1");
+		    let ra = document.getElementById("day2");
+		    let inday = new Date(vao.value);
+		    let outday = new Date(ra.value);
+		    let time = outday - inday;
+		    let day = Math.floor(time / (1000 * 60 * 60 * 24) + 1);
+		    var x = document.getElementById('select');
+		    var z,tien;
+		    for(var i =0 ;i < x.length; x++){
+		    	if(x[i].selected){
+		    		z = x[i].value;
+		    	}
+		    }
+		    if(day>=7){
+		    	tien = day*z*0.9;
+		    }
+		    else{
+		    	tien = day*z;
+		    }
+		    alert(tien +".000 VND");
+		}
+	</script>
+</body>
+</html>
