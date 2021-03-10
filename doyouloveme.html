@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			height: 30px;
+			width: 40px;
+		}
+	</style>
+</head>
+<body onload = init()>
+	<h2>Do You Love ME ?? </h2>
+	<button id="yes" onclick="alert('<3')">Yes</button>
+	<button id="no" onmouseover = "no()">No</button>
+	<script>
+		function init(){
+			var x = document.getElementById('no');
+			x.style.left = '0px';
+			x.style.top = '0px';
+			x.style.position = 'relative';
+		}
+		function no() {
+			var x = document.getElementById('no');
+			var heightDoc = window.innerHeight;
+			var widthDoc = window.innerWidth;
+			var randomH = Math.floor(Math.random() * heightDoc);
+			var randomW = Math.floor(Math.random() * widthDoc);
+			if(parseInt(x.style.top) +(randomH/2) +30 < heightDoc && parseInt(x.style.left)+(randomW/2) +40 < widthDoc){
+				x.style.top = parseInt(x.style.top) + (randomH/2) +'px';
+				x.style.left = parseInt(x.style.left) + (randomW/2) +'px';
+			}
+			else{
+				x.style.top = parseInt(x.style.top) - (randomH/2) +'px';
+				x.style.left = parseInt(x.style.left) - (randomW/2) +'px';
+			}
+			console.log(x.style.top,x.style.left)	;
+		}
+	</script>
+</body>
+</html>
