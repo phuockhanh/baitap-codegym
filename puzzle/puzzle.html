@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			/*display: flex;*/
+		}
+		#total{
+			/*display: flex;*/
+			margin-left: 50px;
+			height: 500px;
+			width: 30px;
+			/*border: 1px solid black;*/
+		}
+		img{
+			height: 130px;
+			width: 300px;
+			margin-left: 20px;
+			padding-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="total">
+		<img id="img1" onclick="function1(this.src)" src="car1_1.png">
+		<img id="img2" onclick="function1(this.src)" src="car2_2.png">
+		<img id="img3" onclick="function1(this.src)" src="car3_3.png">
+		<img id="img4" onclick="function1(this.src)" src="car1_4.png">
+	</div>
+	<script>
+		var a1;
+		function ramdom(length){
+			return Math.floor(Math.random()*length)
+		}
+		function function1(src) {
+			var img1 = ["car1_1.png","car2_1.png","car3_1.png"];
+			var img2 = ["car1_2.png","car2_2.png","car3_2.png"];
+			var img3 = ["car1_3.png","car2_3.png","car3_3.png"];
+			var img4 = ["car1_4.png","car2_4.png","car3_4.png"];
+
+
+			src = src.slice(45,46)
+			// console.log(src);
+			switch (src){
+				case '1' :
+				document.getElementById('img1').src = img1[ramdom(img1.length)];
+				break;
+				case '2' :
+				document.getElementById('img2').src = img2[ramdom(img2.length)];
+				break;
+				case '3' :
+				document.getElementById('img3').src = img3[ramdom(img3.length)];
+				break;
+				case '4' :
+				document.getElementById('img4').src = img4[ramdom(img4.length)];
+				break;
+
+			}
+			var c1 = document.getElementById('img1').src.slice(43,44);	
+			var c2 = document.getElementById('img2').src.slice(43,44);
+			var c3 = document.getElementById('img3').src.slice(43,44);
+			var c4 = document.getElementById('img4').src.slice(43,44);
+			if(c1==c2 &&c2==c3 &&c3==c4){
+				document.getElementById('img1').style.border = '3px solid rgba(81, 203, 238, 1)';
+				document.getElementById('img2').style.border = '3px solid rgba(81, 203, 238, 1)';
+				document.getElementById('img3').style.border = '3px solid rgba(81, 203, 238, 1)';
+				document.getElementById('img4').style.border = '3px solid rgba(81, 203, 238, 1)';
+			}
+		}
+	</script>
+</body>
+</html>
