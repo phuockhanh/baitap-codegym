@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		table{
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body onload="myFunction()">
+	<!-- <button onclick="myFunction()">abc</button> -->
+	<script>
+		function myFunction() {
+			var body = document.getElementsByTagName('body')[0];
+			var table = document.createElement('table');
+			// table.style.border-collapse = 'collapse';
+			var i = 0,j = 0;
+			for(i=0;i<=8;i++){
+				var tr = table.insertRow();
+				for(j=0;j<=7;j++){
+					var td = tr.insertCell();
+					td.style.height = '40px';
+					td.style.width = '80px';
+					td.style.border  = '1px solid black';
+					td.innerHTML = (j+2)+"x"+(i+1) +"="+ (j+2)*(i+1)
+				}
+			}
+			body.appendChild(table);
+		}
+		
+	</script>
+</body>
+</html>
