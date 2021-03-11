@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload = "docReaddy()" style="position: relative; max-width: 100%;padding: 0;margin: 0">
+		<img style="width: 200px;height: 100px; position: absolute; left: 0; top:0;" id="image" src="right.jpg">
+		<!-- <input type="button" value="click me" onclick="mouseRight()"> -->
+	<script>
+		function Up() {
+			let car = document.getElementById('image');
+			car.src = "up.jpg";
+			car.style.width = '100px';
+			car.style.height = '200px'
+			if(parseInt(car.style.top)> 0){
+				car.style.top = parseInt(car.style.top) - 5 +'px';
+			}
+			// document.getElementByClassName('')
+		}
+		function Down(){
+			let car = document.getElementById('image');
+			car.src = "down.jpg"
+			car.style.width ="100px";
+			car.style.height = "200px";
+			var heightCar = parseInt(car.style.height);
+			var heightDoc = window.innerHeight;
+			if(heightCar + parseInt(car.style.top) + 5 < heightDoc){
+				car.style.top = parseInt(car.style.top) + 5 +'px';
+			}
+		}
+		function Left(){
+			let car = document.getElementById('image');
+			car.src = 'left.jpg'
+			car.style.height = '100px';
+			car.style.width = '200px';
+			if(parseInt(car.style.left)> 0){
+				car.style.left = parseInt(car.style.left) - 5 +'px';
+			}
+			
+		}
+		function Right(){
+			let car = document.getElementById('image');
+			car.src = 'right.jpg'
+			car.style.height = '100px';
+			car.style.width = '200px';
+			var widthCar = parseInt(car.style.width);
+			var widthDoc = window.innerWidth;
+			if(parseInt(car.style.left)+ widthCar +5 < widthDoc){
+				car.style.left = parseInt(car.style.left) + 5 +'px';
+			}
+			
+		}
+		function keySelect(evt){
+			switch (evt.keyCode){
+				case 37:
+					Left();
+					break;
+				case 39:
+					Right();
+					break;
+				case 38:
+					Up();
+					break;
+				case 40:
+					Down();
+					break;
+			}		
+		}
+		function docReaddy(){
+			window.addEventListener('keydown', keySelect);
+		}
+	</script>
+</body>
+</html>
