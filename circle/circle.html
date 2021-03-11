@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="circle.css">
+</head>
+<body>
+	<label class="switch" >
+	  <input type="checkbox" id="cb1" onclick="myFunction2()">
+	  <span class="slider round" ></span>
+	</label><br>
+	<label class="switch" >
+	  <input type="checkbox" id="cb2" onclick="myFunction1()"> 
+	  <span class="slider round"></span>
+	</label><br>
+	<label class="switch" >
+	  <input type="checkbox" id="cb3" onclick="myFunction()">
+	  <span class="slider round"></span>
+	</label><br>
+	<script>
+		function myFunction() {
+			var cb1 = document.getElementById('cb1');
+			var cb2 = document.getElementById('cb2');
+			var cb3 = document.getElementById('cb3');
+			var x = document.getElementsByTagName('input');
+			if(x[0].checked == true && x[1].checked == true && x[2].checked == true){
+				x[0].checked = false;
+			}
+			// if(x[1].checked == true && x[2].checked == true && x[0].checked == false){
+			// 	x[2].checked = false;
+			// }
+		}
+		function myFunction1() {
+			var cb1 = document.getElementById('cb1');
+			var cb2 = document.getElementById('cb2');
+			var cb3 = document.getElementById('cb3');
+			var x = document.getElementsByTagName('input');
+			if(x[0].checked == true && x[1].checked == true && x[2].checked == true){
+				x[2].checked = false;
+			}
+			// if(x[1].checked == true && x[2].checked == true && x[0].checked == false){
+			// 	x[2].checked = false;
+			// }
+		}
+		function myFunction2() {
+			var cb1 = document.getElementById('cb1');
+			var cb2 = document.getElementById('cb2');
+			var cb3 = document.getElementById('cb3');
+			var x = document.getElementsByTagName('input');
+			if(x[0].checked == true && x[1].checked == true && x[2].checked == true){
+				x[1].checked = false;
+			}
+			// if(x[1].checked == true && x[2].checked == true && x[0].checked == false){
+			// 	x[2].checked = false;
+			// }
+		}
+		
+	</script>
+</body>
+</html>
