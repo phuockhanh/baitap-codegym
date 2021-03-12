@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var tienBanDau = parseInt(prompt("Nhập số tiền ban đầu : "));
+		var thang = parseInt(prompt("nhập số tháng"));
+		var tienLai=0;
+		var laiSuat = prompt("nhập lãi suất hàng tháng :  ");
+		for(var i = 1 ; i<=thang;i++){
+			tienLai =tienLai + (tienLai+tienBanDau)*(laiSuat/100);
+		}
+		alert(tienLai);
+		// console.log(tienLai+tienBanDau);
+	</script>
+</body>
+</html>
