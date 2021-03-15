@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" name="" id="input">
+	<input type="button" name="" value = 'Add' onclick="Add()">
+	<input type="button" name="" value = 'Display' onclick="Display()">
+	<div id="result"></div>
+	<script>
+		var arr = [];
+		var c = 0;
+		function Add() {
+			var val = document.getElementById('input').value;
+			arr[c] = val;
+			c++;
+			console.log(arr);
+		}
+		function Display(){
+			var line = '<hr/>'
+			for(var j =0;j<arr.length;j++){
+				line =line + "element "+j +":" +arr[j] +'<br>'; 
+				document.getElementById('result').innerHTML = line;
+			}
+		}
+	</script>
+</body>
+</html>
