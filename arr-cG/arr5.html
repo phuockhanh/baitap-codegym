@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="result"></div>
+	<input type="button" name="" onclick="change()" value="Change"><br><br>
+	<script>
+		var data='';
+		var b = document.getElementById('result');
+		var arr = [5,5];
+		for(var i = 0 ; i<5 ;i++){
+			for(var j = 0 ;j<5 ;j++){
+				arr[i,j] = "O "+ "&nbsp" + "&nbsp";
+				 data += arr[i,j];
+			}
+			data += "<br/>";
+		}
+		b.innerHTML = data;
+		function change() {
+			var x = prompt("Nhập vị trí hàng muốn đổi :");
+			var y = prompt("Nhập vị trí cột muốn đổi :");
+			data = '';
+			for(var i = 0 ; i<5 ;i++){
+				for(var j = 0 ;j<5 ;j++){
+					if(i==x && j==y){
+						arr[i,j] = "X " + "&nbsp" + "&nbsp";
+						data += arr[i,j];
+					}
+					else{
+						arr[i,j] = "O " + "&nbsp" + "&nbsp";
+						data += arr[i,j];
+					}
+					
+				}
+				data += '<br>';
+			}
+			b.innerHTML="<hr/>" +data;
+			data+=('<input type="button" name="" onclick="change()" value="Change">' +"<br>");
+		}
+	</script>
+</body>
+</html>
