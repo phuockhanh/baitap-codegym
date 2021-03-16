@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var arr1 = [1, 2, 3];
+		var arr2 =  [100, 2, 1, 10];
+		var different = [];
+		var a =0;
+		for(var i =0;i< arr1.length;i++){
+			var count =0;
+			for(var j=0;j<arr2.length;j++){
+				if(arr1[i]==arr2[j]){
+					count++;
+					break;
+				}
+			}
+			if(count==0){
+				different[a] = arr1[i];
+				a++;
+			}
+		}
+		for(var i =0;i< arr2.length;i++){
+			var count =0;
+			for(var j=0;j<arr1.length;j++){
+				if(arr2[i]==arr1[j]){
+					count++;
+					break;
+				}
+			}
+			if(count==0){
+				different[a] = arr2[i];
+				a++;
+			}
+		}
+		document.write(different);
+	</script>
+</body>
+</html>

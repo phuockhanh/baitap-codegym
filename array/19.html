@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var arr1 = [1,0,2,3,4];
+		var arr2 = [3,5,6,7,8,13];
+		var total = [];
+		if(arr1.length>=arr2.length){
+			for(let i = 0 ;i< arr2.length;i++){
+				total[i] = arr1[i] + arr2[i];
+			}
+			for(let i = arr2.length; i<arr1.length;i++){
+				total[i] = arr1[i];
+			}
+		}
+		else{
+			for(let i = 0 ;i< arr1.length;i++){
+				total[i] = arr1[i] + arr2[i];
+			}
+			for(let i = arr1.length; i<arr2.length;i++){
+				total[i] = arr2[i];
+			}
+		}
+		
+		document.write(total);
+	</script>
+</body>
+</html>

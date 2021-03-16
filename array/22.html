@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var arr1 = [1, 2, 3];
+		var arr2 =  [100, 2, 1, 10];
+		var arr3 = arr1.concat(arr2);
+		var tam;
+		console.log(arr3);
+		for(var i = 0;i<arr3.length-1;i++){
+			for(var j = i+1;j<arr3.length;j++){
+				if(arr3[i]==arr3[j]){
+					arr3.splice(j,1);
+				}
+				if(arr3[i]>arr3[j]){
+					tam = arr3[i];
+					arr3[i] = arr3[j];
+					arr3[j] =tam; 
+				}
+			}
+		}
+		document.write(arr3);
+	</script>
+</body>
+</html>

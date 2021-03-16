@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		
+		var tam;
+		var max =0;
+		var arr=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+		for(let i = 1 ; i <arr.length;i++){
+			var count =0;
+			for(let j =i ; j<arr.length;j++){
+				if(arr[i]===arr[j]){
+					count++;
+				}
+			}
+			if(count>max){
+				max = count;
+				tam = arr[i];
+			}
+		}
+		document.write(tam + " ("+max+") times");
+	</script>
+</body>
+</html>

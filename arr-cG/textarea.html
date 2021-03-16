@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h2>Type anthing slowly</h2>
+	<textarea style="height: 200px;width: 400px;" id="texta"></textarea>
+	<script>
+		let arr = ["W", "H", "O", " ", "A", "R", "E", " ", "Y", "O", "U", " ", "?"];
+		let i=0;
+		function aeyDown() {
+			if(i < arr.length){
+				document.getElementById('texta').innerHTML += arr[i];
+				i++;
+				console.log(arr[i]);
+			}
+			else{
+				document.getElementById('texta').innerHTML = '';
+				i=0;
+			}
+		}
+		window.addEventListener('keydown',aeyDown);
+	</script>
+</body>
+</html>

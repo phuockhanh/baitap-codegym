@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+		var o = ["th","st","nd","rd"];
+		for(var i = 0 ;i<color.length;i++){
+			var c = i+1;
+			if(i>=3){
+				c = 0;
+			}
+			document.write((1+i)+o[c]+" Choice is " +color[i] +"<br>");
+		}
+	</script>
+</body>
+</html>

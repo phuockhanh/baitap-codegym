@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var number1 = parseInt(prompt("nhap number1"));
+		var number2 = parseInt(prompt("nhap number2"));
+		if(number1>0 && number2>0){
+			for(var i=2;i<=number1;i++){
+				if(number1%i==0 && number2%i ==0){
+					alert("uoc chung nho nhat : "+i);
+					break;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

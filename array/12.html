@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var sum = [1,2,3,4];
+		var total = 0;
+		var product = 1;
+		for(i=0;i<sum.length;i++){
+			total = sum[i]*sum[i] + total;
+			product = product*sum[i];
+		}
+		document.write("total : "+total + '<br>');
+		document.write("product : "+product);
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		var str = prompt("Nhập Dữ liệu");
+		var c = 0 ;
+		var str2 =[];
+		for(var i = 0 ; i<str.length;i++){
+			if(str[i].charCodeAt(0)>=65 && str[i].charCodeAt(0)<=90){
+				c = 32;
+
+			}
+			else if(str[i].charCodeAt(0)>=97 && str[i].charCodeAt(0)<=122){
+				c= -32;
+			}
+			else{
+				c=0;
+			}
+			str2[i] = (String.fromCharCode(str[i].charCodeAt(0) + c));
+		}
+		document.write(str2.join(''));
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var memory;
+		var number1 = parseInt(prompt("input number 1 :"));
+		var number2 = parseInt(prompt("input number 2 :"));
+		var number3 = parseInt(prompt("input number 3 :"));
+		if(number1>=number2&&number1>=number3){
+			if(number2>number3){
+				alert(number1 +", "+number2+ " ,"+number3);
+			}
+			else{
+				alert(number1 +", "+number3+ " ,"+number2);
+			}		
+		}
+		else{
+			if(number2>=number3&&number3>=number1){
+				alert(number2 +", "+number3+ " ,"+number1);
+
+			}
+			if(number2>=number3&&number1>=number3){
+				alert(number2 +", "+number1+ " ,"+number3);
+			}
+			if(number3>=number2&&number2>=number1){
+				alert(number3 +", "+number2+ " ,"+number1);
+
+			}
+			else{
+				alert(number3 +", "+number1+ " ,"+number2);
+			}
+		}
+	</script>
+</body>
+</html>

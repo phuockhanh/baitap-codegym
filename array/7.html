@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var tam;
+		var arr = [3,8,7,6,4,-4,3,2,1];
+		for(let i = 0 ; i<arr.length-1;i++){
+			for(let j=i+1;j<arr.length;j++){
+				if(arr[i]>arr[j]){
+					tam=arr[i];
+					arr[i]=arr[j];
+					arr[j]=tam;
+				}
+			}
+		}
+		for(let i = 0;i<arr.length;i++){
+			document.write(arr[i] + ',');		
+		}
+	</script>
+</body>
+</html>

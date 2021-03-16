@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var numberStart = parseInt(prompt("nhap nam bat dau :"));
+		var numberEnd = parseInt(prompt("nhap nam ket thuc "));
+		for(var i = numberStart;i<=numberEnd;i++){
+			if(i%4==0 && i%100!=0 || i%400 == 0){
+				document.write(i + " la nam nhuan <br>");
+			}
+		}
+	</script>
+</body>
+</html>
