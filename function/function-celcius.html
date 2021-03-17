@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>''
+	<span>Fahrenheit</span><input type="number" name="number" oninput="changeCelcius(this.value)" onchange="changeCelcius(this.value)">
+	<p id="text"></p>
+	<script>
+		function changeCelcius(F) {
+			document.getElementById('text').innerHTML =  (F-32)/1.8;
+
+		}
+	</script>
+</body>
+</html>
