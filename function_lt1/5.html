@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		let str = prompt("nhập tên ngôi sao : ");
+		let arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+		let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+		function checkStar(str) {
+			let a= arr.findIndex(el=>el==str);
+			alert(arr2[a]);
+		}
+		checkStar(str);
+	</script>
+</body>
+</html>
