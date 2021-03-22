@@ -32,6 +32,7 @@
 			
 		</tbody>
 	</table>
+
 	<script>
 		let player =1;
 		let caro = [];
@@ -67,6 +68,50 @@
 						str+= '</tr>';
 					}
 					tbody.innerHTML = str;
+					for(let i=0;i<size;i++){
+						for(let j=0;j<size;j++){
+							if(caro[i][j]==1){
+								let a = i;
+								let b = j;
+								// chéo trên xuống
+								for(let i=a-2, j=b-2;i<=a+2,j<=b+2;i++,j++){
+									if(i<8 && j>=0 && i>=0 && j<8){
+										if(caro[i][j]==1 && caro[i+1][j+1]==1 && caro[i+2][j+2]==1){
+											console.log(caro[i][j],caro[i+1][j+1],caro[i+2][j+2]);
+											alert("player 1 win");
+											break;
+										}
+									}
+									else{
+										continue;
+									}
+								}
+								// chéo từ dưới lên trên
+								for(let i=a+2,j=b-2;i>=a-2,j<=b+2;i--,j++){
+									if(i<8 && j>=0 && i>=0 && j<8 && caro[i][j]==1 && caro[i-1][j+1]==1 && caro[i-2][j+2]==1){
+										console.log(i,j);
+										alert("player 1 win");
+										break;
+									}
+								}
+								// hàng ngang
+								for(let j=b-2;j<=b+2;j++){
+									if(j>=0 && j<8 && caro[i][j]==1 && caro[i][j+1]==1 &&caro[i][j+2]==1){
+										alert("player 1 win");
+										break;
+									}
+								}
+								// hàng dọc
+								for(let i=a-2;i<=a+2;i++){
+									if(i>=0 && i<8 && caro[i][j]==1&& caro[i+1][j] && caro[i+2][j]==1){
+										alert("player 1 win");
+										console.log(caro[i][j],caro[i+1][j],caro[i+2][j]);
+										break;
+									}
+								}
+							}
+						}
+					}
 					player=2;
 				}
 				else{
@@ -83,7 +128,9 @@
 					tbody.innerHTML = str;
 					player = 1;
 				}
-			}
+			}	
+		}
+		function check(){
 			
 		}
 	</script>

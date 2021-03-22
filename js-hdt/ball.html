@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" height="500px;" width="700px;" style="border: 1px solid black;" onmousemove="moveCrossBar()"></canvas>
+	<script>
+		var x = 200;
+		var y = 32;
+		var c = 2;
+		var b = 5;
+		var infoBall = document.getElementById('myCanvas');
+		var ball = document.getElementById('myCanvas').getContext('2d');
+		function createBall(x,y) {
+			ball.beginPath();
+			ball.arc(x,y,10,0,2*Math.PI);
+			ball.fillStyle = 'red';
+			ball.fill();
+		}
+		var crossbar = {
+			height : 8,
+			width : 80,
+			x : (infoBall.width / 2 -40),
+			y : infoBall.height - 8,
+			speed : 30
+		}
+		function createCrossBar(){
+			ball.beginPath();
+			ball.fillRect(crossbar.x,crossbar.y,crossbar.width,crossbar.height);
+			ball.fillStyle = 'blue';
+			ball.fill();
+		}
+		function moveCrossBar(){
+			// document.addEventListener('keydown',function(event){
+			// 	if(event.keyCode == 37 && crossbar.x>0 ){
+			// 		if(crossbar.x<crossbar.width){
+			// 			crossbar.speed = crossbar.x;
+			// 		}
+			// 		crossbar.x -= crossbar.speed;
+			// 	}
+			// 	if(event.keyCode == 39 && crossbar.x < infoBall.width - crossbar.width ){
+			// 		if(infoBall.width - (crossbar.x + crossbar.width)<crossbar.width){
+			// 			crossbar.speed = infoBall.width -  crossbar.x - crossbar.width;
+			// 		}
+			// 		crossbar.x += crossbar.speed;
+			// 	}
+			// })
+			// window.addEventListener("mousemove", function (e) {
+		 //         const x = window.Event
+		 //            ? e.pageX
+		 //            : event.clientX +
+		 //              (document.documentElement.scrollLeft
+		 //                ? document.documentElement.scrollLeft
+		 //                : document.body.scrollLeft);
+	  //     	   crossbar.x = x - 35 + "px";
+	  //       });		
+
+	  		crossbar.x+=1;	
+		}
+		function moveBall(){
+			var In = setInterval(function(){
+				ball.clearRect(0,0,700,500);
+				x=x+b;
+				y=y+c;
+				if(y>=492){
+					clearInterval(In);
+					alert("game over");
+				}
+				if(y>=482 && x>=crossbar.x && x<=crossbar.x+crossbar.width){
+					c=-c;
+				}
+				if(x>690){
+					b=-b;
+				}
+				if(y<10){
+					c=-c;
+				}
+				if(x<10){
+					b=-b;
+				}
+				createBall(x,y);
+				createCrossBar();
+			},15)
+		}
+		function main(){
+			createBall(x,y);
+			createCrossBar();
+			moveBall();
+			moveCrossBar();
+		}
+		main();
+	</script>
+</body>
+</html>

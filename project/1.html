@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		table{
+			margin: 0px auto;
+		}
+		table,tr,td{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		td{
+			height: 25px;
+			width: 25px;
+			padding: 5px;
+			text-align: center;
+		}
+		button{
+			height: 40px;
+			width: 100px;
+			margin: 5px;
+			background-color: orange;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		.divBtn{
+			margin: 0px auto;
+			height: 100px;
+			width: 400px;
+			/*border: 1px solid black;*/
+			text-align: center;
+			align-items: center;
+		}
+		#text{
+			height: 100px;
+			width: 300px;
+			margin: 0px auto;
+			/*border: 1px solid black;*/
+			font-size: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<table border="1" >
+		<tbody>
+			
+		</tbody>
+	</table>
+	<div class="divBtn">
+		<button onclick="tableCaroReset(maTrix)">Vẽ lại ma trận</button>
+		<button onclick="tamGiacTren(maTrix)">Tam giác Trên</button>
+		<button onclick="tamGiacDuoi(maTrix)">Tam giác Dưới</button>
+	</div>
+	<div id="text"></div>
+	<script>
+		let col = prompt("nhập số cột :");
+		let tbody = document.getElementsByTagName('tbody')[0];
+		function maTrixTable(col) {	
+			var caro = [];
+			for(let i=0;i<col;i++){
+				let arr = [];
+				for(let j=0;j<col;j++){
+					arr[j] = 0;
+				}
+				caro.push(arr);
+			}
+			return caro;
+		}
+		function tableCaroReset(maTrix){
+			let tb_caro ='';
+			for(let i=0;i<maTrix.length;i++){
+				tb_caro+='<tr>';
+				for(let j=0 ; j<maTrix[i].length;j++){
+					tb_caro+=`<td">${(Math.floor(Math.random()*81+10))}</td>`;
+				}
+				tb_caro+='</tr>';
+			}
+			tbody.innerHTML = tb_caro;
+			main();
+			return tb_caro;
+
+		}
+		function tableCaro(maTrix){
+			let tb_caro ='';
+			for(let i=0;i<maTrix.length;i++){
+				tb_caro+='<tr>';
+				for(let j=0 ; j<maTrix[i].length;j++){
+					tb_caro+=`<td>${maTrix[i][j]==1?0:(Math.floor(Math.random()*81+10))}</td>`;
+				}
+				tb_caro+='</tr>';
+			}
+			tbody.innerHTML = tb_caro;
+			return tb_caro;
+		}
+		function totalEven(col){
+			let totalEven=0;
+			for(let i =0;i<col;i++){
+				for(let j=0;j<col;j++){
+					if(parseInt(tbody.children[i].children[j].innerText)%2==0){
+						totalEven = totalEven + parseInt(tbody.children[i].children[j].innerText);
+					}
+				}
+			}
+			return totalEven;
+		}
+		function duongCheoChinh(col){
+			let sum_DCC =0;
+			for(let i =0;i<col;i++){
+				for(let j=0;j<col;j++){
+					if(i==j){
+						sum_DCC = sum_DCC + parseInt(tbody.children[i].children[j].innerText);
+					}
+				}
+			}
+			return sum_DCC;
+		}
+		function duongCheoPhu(col){
+			let sum_DCP =0;
+				for(let i=col-1,j=0;i>=0,j<col;i--,j++){
+					sum_DCP = sum_DCP + parseInt(tbody.children[i].children[j].innerText);
+				}
+			return sum_DCP;
+		}
+		function tongDuongBien(col){
+			let sum_DP = 0;
+			for(let i=0;i<col;i++){
+				for(let j=0;j<col;j++){
+					if(i==0 || i==col-1 || j==0 || j==col-1){
+						sum_DP = sum_DP + parseInt(tbody.children[i].children[j].innerText);
+					}
+				}
+			}
+			return sum_DP;
+		}
+		function tamGiacTren(maTrix){
+			for(let i =0;i<maTrix.length;i++){
+				for(let j=0;j<maTrix.length;j++){
+					if(i==j){
+						for(let a=i+1;a<maTrix.length;a++){
+							maTrix[a][j] =1;
+						}
+						for(let a=i-1;a>=0;a--){
+							maTrix[a][j] =0;
+						}
+					}
+				}
+			}
+			// main();
+			tableCaro(maTrix);
+			totalTamgiac();
+			return maTrix;
+		}
+		function tamGiacDuoi(maTrix){
+			for(let i =0;i<maTrix.length;i++){
+				for(let j=0;j<maTrix.length;j++){
+					if(i==j){
+						for(let a=i-1;a>=0;a--){
+							maTrix[a][j]=1;
+						}
+						for(let a=i+1;a<maTrix.length;a++){
+							maTrix[a][j] =0;
+						}
+					}
+					
+				}
+			}
+			tableCaro(maTrix);
+			totalTamgiac();
+			return maTrix;
+		}
+		function main(){
+			maTrix = maTrixTable(col);
+			tableCaro(maTrix);
+			let text = document.getElementById('text');
+			// text.innerHTML.innerHTML='';
+			text.innerHTML = 'Tổng số chẵn  : ' +totalEven(col) +'<br>';
+			text.innerHTML+= 'Tổng đường chéo chính : ' +duongCheoChinh(col) +'<br>';
+			text.innerHTML+= 'Tổng đường chéo phụ : ' +duongCheoPhu(col) +'<br>';
+			text.innerHTML+= 'Tổng đường biên : ' +tongDuongBien(col) +'<br>';
+		}
+		function totalTamgiac(){
+			text.innerHTML = 'Tổng số chẵn  : ' +totalEven(col) +'<br>';
+			text.innerHTML+= 'Tổng đường chéo chính : ' +duongCheoChinh(col) +'<br>';
+			text.innerHTML+= 'Tổng đường chéo phụ : ' +duongCheoPhu(col) +'<br>';
+			text.innerHTML+= 'Tổng đường biên : ' +tongDuongBien(col) +'<br>';
+		}
+		let maTrix;
+		main();
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		let MyDate = function(d,m,y) {
+			this.day = d;
+			this.month = m;
+			this.year=y;
+			this.getDay = function(){
+				return this.day;
+			}
+			this.getMonth = function(){
+				return this.month;
+			}
+			this.getYear = function(){
+				return this.year;
+			}
+			this.setDate = function(d,m,y){
+				this.day = d;
+				this.month = m;
+				this.year = y;
+			}
+			// toString: () => {
+   //    			  return "User Details";
+  	// 		}
+		}
+		let date = new MyDate(2,3,2007);
+		let day = date.getDay();
+		let month = date.getMonth();
+		let year = date.getYear();
+		alert(`${day}/${month}/${year}`);
+		date.setDate(10,10,2020);
+		day = date.getDay();
+		month = date.getMonth();
+		year = date.getYear();
+		alert(`${day}/${month}/${year}`);
+		alert(JSON.stringify(date));
+	</script>
+</body>
+</html>

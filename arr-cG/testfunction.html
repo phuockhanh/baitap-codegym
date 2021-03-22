@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		function kiemtra_namNhuan(nam) {
+			if(nam%4==0 && nam%100!=0 || nam%400 ==0){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		let check = kiemtra_namNhuan(1995);
+		if(check){
+			alert("la nam nhuan");
+		}
+		else{
+			alert("ko phai nam nhuan");
+		}
+	</script>
+</body>
+</html>

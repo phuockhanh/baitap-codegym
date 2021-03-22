@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" height="625px" width="1366px"></canvas>
+	<script>
+		function Circle(x,y,radius){
+			this.x = x;
+			this.y = y;
+			this.radius = radius;
+		}
+		function randomHexa(){
+			return Math.floor(Math.random()*256); 
+		}
+		function randomColor(){
+			var red = randomHexa();
+			var blue = randomHexa();
+			var green = randomHexa();
+			return "rgb("+ red + ','+ blue +','+ green +")";
+		}
+		function createCircle() {
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			var x = Math.floor(Math.random()*window.innerWidth);
+			var y = Math.floor(Math.random()*window.innerHeight);
+			var radius = Math.floor(Math.random()*80+20);
+			var circle = new Circle(x,y,radius);
+			ctx.fillStyle = randomColor();
+			ctx.beginPath();
+			ctx.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+			ctx.fill();
+			ctx.closePath();
+		}
+		function createMultipleCircle(){
+			for(var i = 0; i < 20; i++){
+				setTimeout(function(){createCircle()},i*500);
+	   		}
+		}
+		createMultipleCircle();
+	</script>
+</body>
+</html>

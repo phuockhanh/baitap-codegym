@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		table{
+			border-collapse: collapse;		
+		}
+		td{
+			height: 50px;
+			width: 300px;
+			padding-left: 20px;
+		}
+		input{
+			height: 20px;
+		}
+		button{
+			height: 30px;
+			width: 60px;
+			background: orange;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		#product{
+			margin-left: 600px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="text"><span><input type="button" onclick="createRow()" value="Add"></input></span>
+	<h2>Display all product</h2>
+	Product Name<span id="product"></span>
+	<table>
+		<tbody>
+
+		</tbody>
+	</table>
+	<script>
+		let tbody = document.getElementsByTagName('tbody')[0];
+		function createRow() {
+			let text = document.getElementById('text').value;
+			let tr = ''
+			tr += `<tr>`;
+			for(let i=0;i<3;i++){
+				tr+= `<td>${i==0?text:(i==1)?`<button>Edit</button>`:`<button onclick='parentNode.parentNode.remove(),change()'>Delete</button>`}</td>`
+			}
+			tr +=`</tr>`
+			tbody.innerHTML += tr;
+			change();
+		}
+		function change(){
+			let product = tbody.children.length;
+			document.getElementById('product').innerHTML = product;
+			return product;
+		}
+	</script>
+</body>
+</html>
