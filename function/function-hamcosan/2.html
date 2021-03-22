@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		let a =[];
+		let number = +prompt('input : ');
+		for(let i=0;i<number;i++){
+			a[i] = prompt(`input a[${i}] : `);
+		}
+		for(let i=0 ; i<a.length;i++){
+			if(a[i]%2==0 && a[i+1]%2==0){
+				a.splice(i+1,0,'-');
+			}
+		}
+		document.write(a.join(''));
+	</script>
+</body>
+</html>
