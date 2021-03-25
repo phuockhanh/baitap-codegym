@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			overflow: hidden;
+		}
+		.mobi1,.mobi2{
+			height: 400px;
+			width: 300px;
+			border: 1px solid black;
+			float: left;
+			margin: 30px ;
+			position: relative;
+		}
+		input{
+			width: 250px;
+			position: absolute;
+			bottom: 0;
+			box-sizing: border-box;
+			height: 50px;
+		}
+		button{
+			width: 50px;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			height: 50px;
+		}
+		#showMessage1, #showMessage2{
+			height: 350px;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="mobi1">
+		<input type="text" name="text" id="send1"><span><button onclick = 'sendMassage1()'>Gửi</button></span>
+		<div id="showMessage1"></div>
+	</div>
+	<div class="mobi2">
+		<input type="text" name="text" id="send2"><span><button onclick="sendMassage2(sendMassage1)">Gửi</button></span>
+		<div id="showMessage2"><p style="float: right;"></p></div>
+
+	</div>
+	<script>
+		var message1;
+		var message2;
+		var player = 2;
+		function sendMassage1() {
+			message1 =  document.getElementById('send1').value;
+			document.getElementById('showMessage2').innerHTML += message1 +'<br>';
+			document.getElementById('showMessage1').innerHTML += '<p style="float: right;">'+message1+'</p>' +'<br>';1
+			// return message1;
+		}
+		function sendMassage2(){
+			message2 = document.getElementById('send2').value;
+			document.getElementById('showMessage1').innerHTML += message2 +'<br>';
+			document.getElementById('showMessage2').innerHTML +='<p style="float: right;">'+message2+'</p>'  +'<br>';
+		}
+	</script>
+</body>
+</html>

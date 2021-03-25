@@ -31,7 +31,7 @@
 			width : 80,
 			x : (infoBall.width / 2 -40),
 			y : infoBall.height - 8,
-			speed : 30
+			speed : 20
 		}
 		function createCrossBar(){
 			ball.beginPath();
@@ -40,31 +40,16 @@
 			ball.fill();
 		}
 		function moveCrossBar(){
-			// document.addEventListener('keydown',function(event){
-			// 	if(event.keyCode == 37 && crossbar.x>0 ){
-			// 		if(crossbar.x<crossbar.width){
-			// 			crossbar.speed = crossbar.x;
-			// 		}
-			// 		crossbar.x -= crossbar.speed;
-			// 	}
-			// 	if(event.keyCode == 39 && crossbar.x < infoBall.width - crossbar.width ){
-			// 		if(infoBall.width - (crossbar.x + crossbar.width)<crossbar.width){
-			// 			crossbar.speed = infoBall.width -  crossbar.x - crossbar.width;
-			// 		}
-			// 		crossbar.x += crossbar.speed;
-			// 	}
-			// })
-			// window.addEventListener("mousemove", function (e) {
-		 //         const x = window.Event
-		 //            ? e.pageX
-		 //            : event.clientX +
-		 //              (document.documentElement.scrollLeft
-		 //                ? document.documentElement.scrollLeft
-		 //                : document.body.scrollLeft);
-	  //     	   crossbar.x = x - 35 + "px";
-	  //       });		
-
-	  		crossbar.x+=1;	
+	  		infoBall.addEventListener("mousemove",function(e){
+	  			var x = e.clientX;
+	  			if(x>crossbar.x && crossbar.x+crossbar.width<infoBall.width){
+	  				crossbar.x += 1; 
+	  			}
+	  			else {
+	  				crossbar.x -=1;
+	  			}
+	  		})
+	  		
 		}
 		function moveBall(){
 			var In = setInterval(function(){
@@ -90,6 +75,15 @@
 				createBall(x,y);
 				createCrossBar();
 			},15)
+		}
+		function createBrick(){
+			bricks = new Array(3);
+			for(var i = 0;i<3;i++){
+				bricks[i] = new Array(8);
+				for(var j =0;j<8;j++){
+					bricks[i][j] = new brick((j*30)+10,(i*20)+10,30,20,'blue');
+				}
+			}
 		}
 		function main(){
 			createBall(x,y);
